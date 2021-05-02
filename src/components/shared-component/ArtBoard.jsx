@@ -24,7 +24,7 @@ const ArtBoard = () => {
     <>
       <section
         className="wow fadeIn one-fourth-screen cover-background"
-        style={{ backgroundImage: `url(${window.location.origin}/${artBoard?.image})` }}
+        style={{ backgroundImage: `url(${window.location.origin}/images/pofo-magic-box-bg.jpg)` }}
       >
         <div className="container">
           <div className="row">

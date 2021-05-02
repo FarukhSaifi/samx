@@ -64,8 +64,12 @@ const Content = () => {
           <div className="row">
             <div className="col-12 px-3 p-md-0">
               <div className="filter-content overflow-hidden">
-                <ul className="portfolio-grid portfolio-metro-grid work-4col hover-option8 gutter-medium">
+                <ul
+                  className="portfolio-grid portfolio-metro-grid work-4col hover-option8 gutter-medium"
+                  style={{ display: "flex", flexWrap: "wrap" }}
+                >
                   <li className="grid-sizer"></li>
+
                   {/* <!-- start portfolio item --> */}
                   {/* <li className="grid-item wow advertising design fadeInUp">
                     <a href="single-project-page-01.html">
