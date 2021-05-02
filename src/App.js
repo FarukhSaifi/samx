@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Header from "./components/layouts/Header";
+import Footer from "./components/layouts/Footer";
+import DataState from "./Context/DataContext/DataState";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./components/layouts/Home";
+import NotFound from "./components/shared-component/404";
+import ArtBoard from "./components/shared-component/ArtBoard";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <DataState>
+      <Router>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/art/:postId" component={ArtBoard} />
+          <Route path="*" component={NotFound} />
+        </Switch>
+        <Footer />
+      </Router>
+    </DataState>
   );
-}
+};
 
 export default App;
