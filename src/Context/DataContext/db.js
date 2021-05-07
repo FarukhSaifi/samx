@@ -114,6 +114,21 @@ const db = {
           name: "images/posts/daduji/cricket-3.jpg",
           alt: "cricket-3",
         },
+        {
+          id: "AD-DADuj-1",
+          name: "images/posts/daduji/AD-DADuj-1.jpg",
+          alt: "cricket-3",
+        },
+        {
+          id: "AD-DADuj-2",
+          name: "images/posts/daduji/AD-DADuj-2.jpg",
+          alt: "cricket-3",
+        },
+        {
+          id: "AD-DADuj-3",
+          name: "images/posts/daduji/AD-DADuj-3.jpg",
+          alt: "cricket-3",
+        },
       ],
     },
     {
