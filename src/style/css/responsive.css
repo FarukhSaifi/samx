@@ -1456,7 +1456,7 @@
     /* portfolio grid */
     .portfolio-grid.portfolio-metro-grid.work-4col li {width: 50%}
     .portfolio-grid.portfolio-metro-grid.work-4col li.grid-item-double {width: 50%}
-    .portfolio-grid.portfolio-metro-grid.work-4col li.grid-item-double:last-child { width: 50%;}
+    .portfolio-grid.portfolio-metro-grid.work-4col li:last-child { width: 50%;}
     .portfolio-grid.portfolio-metro-grid.work-6col li {width: 50%}
     .portfolio-grid.portfolio-metro-grid.work-6col li.grid-item-double {width: 50%}
     .portfolio-grid.portfolio-metro-grid.work-6col li.grid-item-double:last-child { width: 50%;}

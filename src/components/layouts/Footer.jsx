@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer-center-logo2 padding-five-tb sm-padding-30px-tb">
+    <footer className="footer-center-logo2 padding-three-tb sm-padding-30px-tb sticky">
       <div className="container">
         <div className="row align-items-center">
           {/* <!-- start social media --> */}
