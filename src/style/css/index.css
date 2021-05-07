@@ -1,17 +1,3 @@
-@import 'animate.css';
-
-@import 'bootstrap.min.css';
-
-
-@import 'et-line-icons.css';
-@import 'font-awesome.min.css';
-@import 'themify-icons.css';
-@import 'swiper.min.css';
-@import 'justified-gallery.min.css';
-@import 'magnific-popup.css';
-@import 'style.css';
-@import 'responsive.css';
-
 
 /* Font  for Headline */
 @font-face {
@@ -59,3 +45,18 @@
     transform: rotate(360deg);
   }
 }
+
+
+@import 'animate.css';
+
+@import 'bootstrap.min.css';
+
+
+@import 'et-line-icons.css';
+@import 'font-awesome.min.css';
+@import 'themify-icons.css';
+@import 'swiper.min.css';
+@import 'justified-gallery.min.css';
+@import 'magnific-popup.css';
+@import 'style.css';
+@import 'responsive.css';
