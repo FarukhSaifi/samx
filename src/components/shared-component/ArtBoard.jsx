@@ -36,7 +36,7 @@ const ArtBoard = () => {
       <section className="wow fadeIn bg-extra-dark-gray">
         <div className="container">
           <div className="row">
-            <div className="col-12 col-lg-6 md-margin-50px-bottom sm-margin-30px-bottom wow fadeInLeft">
+            {/* <div className="col-12 col-lg-6 md-margin-50px-bottom sm-margin-30px-bottom wow fadeInLeft">
               <h2 className="alt-font font-weight-700 letter-spacing-minus-2 text-white-2 margin-5px-bottom">
                 Meat Bun
               </h2>
@@ -67,7 +67,7 @@ const ArtBoard = () => {
                   <a href="index.html">www.meatbun.com</a>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

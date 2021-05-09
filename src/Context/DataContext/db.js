@@ -3,85 +3,91 @@ const db = {
     name: "Sameer Saifi",
     work: "Graphic Designer & Creative Design",
   },
-  categorys: ["All", "Web", "Arts", "Advertising", "Branding", "Illustration"],
+  categorys: ["All", "Web", "Creative", "Advertising", "Branding"],
   posts: [
     {
       postId: 9,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Hell Fire",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/1.jpg",
       delay: "0.2s",
       album: [],
     },
     {
       postId: 10,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Moon Walker",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/2.jpg",
       delay: "0.4s",
       album: [],
     },
     {
       postId: 11,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Hell Fire",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/3.jpg",
       delay: "0.2s",
-      album: [],
+      album: [
+        {
+          id: "Hell Fire",
+          name: "images/posts/arts/3.jpg",
+          alt: "Hell Fire",
+        },
+      ],
     },
     {
       postId: 12,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Hell Fire",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/4.jpg",
       delay: "0.4s",
       album: [],
     },
     {
       postId: 13,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Hell Fire",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/5.jpg",
       delay: "0.2s",
       album: [],
     },
     {
       postId: 14,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Hell Fire",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/6.jpg",
       delay: "0.4s",
       album: [],
     },
     {
       postId: 15,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Hell Fire",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/7.jpg",
       delay: "0.2s",
       album: [],
     },
     {
       postId: 16,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Hell Fire",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/8.jpg",
       delay: "0.4s",
       album: [],
     },
     {
       postId: 17,
-      name: "Arts",
+      name: "Creative",
       subtitle: "Hell Fire",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/arts/9.jpg",
       delay: "0.2s",
       album: [],
@@ -91,7 +97,7 @@ const db = {
       name: "Tailoring Interior",
       subtitle: "Branding and Brochure",
       category: "Advertising",
-      image: "images/posts/daduji/cricket-0.jpg",
+      image: "images/posts/daduji/0.jpg",
       delay: "0.4s",
       album: [
         {
@@ -133,12 +139,42 @@ const db = {
     },
     {
       postId: 18,
-      name: "Arts",
+      name: "Creative",
       subtitle: "vector-girl",
-      category: "Arts",
+      category: "Creative",
       image: "images/posts/Arts/vector-girl.jpg",
       delay: "0.4s",
       album: [],
+    },
+    {
+      postId: 19,
+      name: "Branding",
+      subtitle: "OTP7",
+      category: "Branding",
+      image: "images/posts/LogosArtboard.jpg",
+      delay: "0.2s",
+      album: [
+        {
+          id: "OTP7",
+          name: "images/posts/LogosArtboard.jpg",
+          alt: "OTP7-3",
+        },
+      ],
+    },
+    {
+      postId: 20,
+      name: "Branding",
+      subtitle: "",
+      category: "Branding",
+      image: "images/posts/LogosArtboard-1.jpg",
+      delay: "0.4s",
+      album: [
+        {
+          id: "OTP7-2",
+          name: "images/posts/LogosArtboard-1.jpg",
+          alt: "OTP7-32",
+        },
+      ],
     },
     {
       postId: 1,
@@ -147,7 +183,13 @@ const db = {
       category: "Advertising",
       image: "images/posts/1.jpg",
       delay: "0.2s",
-      album: [],
+      album: [
+        {
+          id: "OTP7-2",
+          name: "images/posts/1.jpg",
+          alt: "OTP7-32",
+        },
+      ],
     },
     {
       postId: 7,
@@ -156,7 +198,13 @@ const db = {
       category: "Advertising",
       image: "images/posts/7.jpg",
       delay: "0.2s",
-      album: [],
+      album: [
+        {
+          id: "OTP7-2",
+          name: "images/posts/7.jpg",
+          alt: "OTP7-32",
+        },
+      ],
     },
     {
       postId: 8,
@@ -165,7 +213,13 @@ const db = {
       category: "Advertising",
       image: "images/posts/8.jpg",
       delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "OTP7-2",
+          name: "images/posts/8.jpg",
+          alt: "OTP7-32",
+        },
+      ],
     },
     {
       postId: 2,
@@ -174,7 +228,13 @@ const db = {
       category: "Advertising",
       image: "images/posts/2.jpg",
       delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "OTP7-2",
+          name: "images/posts/2.jpg",
+          alt: "OTP7-32",
+        },
+      ],
     },
     {
       postId: 3,
@@ -183,7 +243,13 @@ const db = {
       category: "Advertising",
       image: "images/posts/3.jpg",
       delay: "0.2s",
-      album: [],
+      album: [
+        {
+          id: "OTP7-2",
+          name: "images/posts/3.jpg",
+          alt: "OTP7-32",
+        },
+      ],
     },
     {
       postId: 4,
@@ -192,7 +258,28 @@ const db = {
       category: "Advertising",
       image: "images/posts/4.jpg",
       delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "g4s-1",
+          name: "images/posts/G4s/1.jpg",
+          alt: "g4s-1",
+        },
+        {
+          id: "g4s-2",
+          name: "images/posts/G4s/2.jpg",
+          alt: "g4s-2",
+        },
+        {
+          id: "g4s-3",
+          name: "images/posts/G4s/3.jpg",
+          alt: "g4s-3",
+        },
+        {
+          id: "g4s-4",
+          name: "images/posts/G4s/4.jpg",
+          alt: "g4s-4",
+        },
+      ],
     },
     {
       postId: 5,
@@ -201,7 +288,13 @@ const db = {
       category: "Advertising",
       image: "images/posts/5.jpg",
       delay: "0.2s",
-      album: [],
+      album: [
+        {
+          id: "OTP7-2",
+          name: "images/posts/5.jpg",
+          alt: "OTP7-32",
+        },
+      ],
     },
     {
       postId: 6,
@@ -210,7 +303,13 @@ const db = {
       category: "Advertising",
       image: "images/posts/6.jpg",
       delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "",
+          name: "images/posts/6.jpg",
+          alt: "",
+        },
+      ],
     },
   ],
 };
