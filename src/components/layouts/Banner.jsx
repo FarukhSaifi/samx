@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import DataContext from "../../Context/DataContext/DataContext";
+import Image from "../shared-component/Image";
 
 const Banner = () => {
   const context = useContext(DataContext);
@@ -14,7 +15,7 @@ const Banner = () => {
       <div className="container text-center one-third-screen lg-height-350px md-height-500px sm-height-auto sm-padding-40px-top sm-padding-50px-bottom">
         <div className="row">
           <div className="col-12 col-md-3 d-flex flex-column align-items-center justify-content-center one-third-screen lg-height-350px md-height-500px sm-height-auto text-center wow bounceInLeft sm-height-auto sm-margin-30px-bottom">
-            <img alt="" src="images/samx/samlogo-3.png" />
+            <Image alt="SamX" src="images/samx/samlogo-3.png" />
           </div>
           <div className="col-12 col-md-9 d-flex flex-column align-items-center justify-content-center one-third-screen lg-height-350px md-height-500px sm-height-auto text-center wow bounceInRight sm-height-auto">
             <div className="font-weight-300 alt-font title-large text-extra-dark-gray d-inline-block align-bottom mx-auto">
@@ -26,7 +27,7 @@ const Banner = () => {
                 {profile?.name}
               </span>
             </div>
-            <div className="text-medium-gray text-small text-uppercase margin-40px-top letter-spacing-2 alt-font sm-margin-10px-top">
+            <div className="text-medium-gray text-large text-uppercase margin-40px-top letter-spacing-2 alt-font sm-margin-10px-top">
               {profile?.work}
             </div>
           </div>

@@ -3,16 +3,22 @@ const db = {
     name: "Sameer Saifi",
     work: "Graphic Designer & Creative Design",
   },
-  categorys: ["All", "Web", "Creative", "Advertising", "Branding"],
+  categorys: ["All", "Creative", "Advertising", "Branding", "Web"],
   posts: [
     {
       postId: 9,
       name: "Creative",
       subtitle: "Hell Fire",
       category: "Creative",
-      image: "images/posts/arts/1.jpg",
+      image: "images/posts/arts/illustration.jpg",
       delay: "0.2s",
-      album: [],
+      album: [
+        {
+          id: "Hell Fire",
+          name: "images/posts/arts/1.jpg",
+          alt: "Hell Fire",
+        },
+      ],
     },
     {
       postId: 10,
@@ -21,14 +27,20 @@ const db = {
       category: "Creative",
       image: "images/posts/arts/2.jpg",
       delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "Hell Fire",
+          name: "images/posts/arts/2.jpg",
+          alt: "Hell Fire",
+        },
+      ],
     },
     {
       postId: 11,
       name: "Creative",
       subtitle: "Hell Fire",
       category: "Creative",
-      image: "images/posts/arts/3.jpg",
+      image: "images/posts/arts/Ghost.jpg",
       delay: "0.2s",
       album: [
         {
@@ -43,9 +55,15 @@ const db = {
       name: "Creative",
       subtitle: "Hell Fire",
       category: "Creative",
-      image: "images/posts/arts/4.jpg",
+      image: "images/posts/arts/Pubg.jpg",
       delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "Hell Fire",
+          name: "images/posts/arts/4.jpg",
+          alt: "Hell Fire",
+        },
+      ],
     },
     {
       postId: 13,
@@ -54,7 +72,13 @@ const db = {
       category: "Creative",
       image: "images/posts/arts/5.jpg",
       delay: "0.2s",
-      album: [],
+      album: [
+        {
+          id: "Hell Fire",
+          name: "images/posts/arts/5.jpg",
+          alt: "Hell Fire",
+        },
+      ],
     },
     {
       postId: 14,
@@ -70,27 +94,30 @@ const db = {
       name: "Creative",
       subtitle: "Hell Fire",
       category: "Creative",
-      image: "images/posts/arts/7.jpg",
+      image: "images/posts/arts/car.jpg",
       delay: "0.2s",
-      album: [],
-    },
-    {
-      postId: 16,
-      name: "Creative",
-      subtitle: "Hell Fire",
-      category: "Creative",
-      image: "images/posts/arts/8.jpg",
-      delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "AD-DADuj-2",
+          name: "images/posts/arts/8.jpg",
+          alt: "cricket-3",
+        },
+      ],
     },
     {
       postId: 17,
       name: "Creative",
       subtitle: "Hell Fire",
       category: "Creative",
-      image: "images/posts/arts/9.jpg",
+      image: "images/posts/arts/galaxy.jpg",
       delay: "0.2s",
-      album: [],
+      album: [
+        {
+          id: "AD-DADuj-2",
+          name: "images/posts/arts/9.jpg",
+          alt: "cricket-3",
+        },
+      ],
     },
     {
       postId: 0,
@@ -138,6 +165,21 @@ const db = {
       ],
     },
     {
+      postId: 21,
+      name: "Creative",
+      subtitle: "Thunder",
+      category: "Creative",
+      image: "images/posts/Arts/thunder.jpg",
+      delay: "0.4s",
+      album: [
+        {
+          id: "AD-DADuj-3",
+          name: "images/posts/arts/thunder-1920.jpg",
+          alt: "thunder.1920",
+        },
+      ],
+    },
+    {
       postId: 18,
       name: "Creative",
       subtitle: "vector-girl",
@@ -158,6 +200,21 @@ const db = {
           id: "OTP7",
           name: "images/posts/LogosArtboard.jpg",
           alt: "OTP7-3",
+        },
+      ],
+    },
+    {
+      postId: 23,
+      name: "Branding",
+      subtitle: "Blender",
+      category: "Branding",
+      image: "images/posts/Blender.jpg",
+      delay: "0.2s",
+      album: [
+        {
+          id: "Blender",
+          name: "images/posts/Blender-1.jpg",
+          alt: "Blender-3",
         },
       ],
     },
@@ -193,31 +250,61 @@ const db = {
     },
     {
       postId: 7,
-      name: "Tailoring Interior",
+      name: "Matra",
       subtitle: "Branding and Brochure",
       category: "Advertising",
       image: "images/posts/7.jpg",
       delay: "0.2s",
       album: [
         {
-          id: "OTP7-2",
-          name: "images/posts/7.jpg",
+          id: "matra-1",
+          name: "images/posts/matra/1.jpg",
+          alt: "OTP7-32",
+        },
+        {
+          id: "matra-2",
+          name: "images/posts/matra/2.jpg",
+          alt: "OTP7-32",
+        },
+        {
+          id: "matra-3",
+          name: "images/posts/matra/3.jpg",
+          alt: "OTP7-32",
+        },
+        {
+          id: "matra-4",
+          name: "images/posts/matra/4.jpg",
+          alt: "OTP7-32",
+        },
+        {
+          id: "matra-oli",
+          name: "images/posts/matra/Oil.jpg",
           alt: "OTP7-32",
         },
       ],
     },
     {
       postId: 8,
-      name: "Tailoring Interior",
+      name: "Greatlakes",
       subtitle: "Branding and Brochure",
       category: "Advertising",
       image: "images/posts/8.jpg",
       delay: "0.4s",
       album: [
         {
-          id: "OTP7-2",
+          id: "Greatlakes-2",
+          name: "images/posts/Greatlakes.jpg",
+          alt: "Greatlakes-32",
+        },
+        {
+          id: "Greatlakes-222",
+          name: "images/posts/GreatlakesArtboard-1.jpg",
+          alt: "Greatlakes-32",
+        },
+        {
+          id: "Greatlakes-thumb",
           name: "images/posts/8.jpg",
-          alt: "OTP7-32",
+          alt: "Greatlakes-32",
         },
       ],
     },
@@ -226,13 +313,18 @@ const db = {
       name: "Tailoring Interior",
       subtitle: "Branding and Brochure",
       category: "Advertising",
-      image: "images/posts/2.jpg",
+      image: "images/posts/Brithmatics-thumb.jpg",
       delay: "0.4s",
       album: [
         {
-          id: "OTP7-2",
-          name: "images/posts/2.jpg",
-          alt: "OTP7-32",
+          id: "Brithmatics-thumb",
+          name: "images/posts/Brithmatics.jpg",
+          alt: "Brithmatics",
+        },
+        {
+          id: "Brithmatics",
+          name: "images/posts/Brithmatics-thumb.jpg",
+          alt: "Brithmatics",
         },
       ],
     },
@@ -291,7 +383,17 @@ const db = {
       album: [
         {
           id: "OTP7-2",
-          name: "images/posts/5.jpg",
+          name: "images/posts/NPS/NPSArtboard-1.jpg",
+          alt: "OTP7-32",
+        },
+        {
+          id: "OTP7-2",
+          name: "images/posts/NPS/NPSArtboard-2.jpg",
+          alt: "OTP7-32",
+        },
+        {
+          id: "OTP7-2",
+          name: "images/posts/NPS/NPSArtboard-3.jpg",
           alt: "OTP7-32",
         },
       ],
@@ -304,6 +406,16 @@ const db = {
       image: "images/posts/6.jpg",
       delay: "0.4s",
       album: [
+        {
+          id: "DS-1",
+          name: "images/posts/DS.jpg",
+          alt: "DS-1",
+        },
+        // {
+        //   id: "DS-group-holi",
+        //   name: "images/posts/DS-group-holi.jpg",
+        //   alt: "DS-group-holi",
+        // },
         {
           id: "",
           name: "images/posts/6.jpg",
