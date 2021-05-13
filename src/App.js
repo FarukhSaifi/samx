@@ -15,7 +15,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/art/:postId" component={ArtBoard} />
-          <Route path="*" component={NotFound} />
+          <Route component={NotFound} />
         </Switch>
         <Footer />
       </Router>

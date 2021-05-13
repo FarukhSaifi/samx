@@ -87,7 +87,13 @@ const db = {
       category: "Creative",
       image: "images/posts/arts/6.jpg",
       delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "Hell Fire",
+          name: "images/posts/arts/6.jpg",
+          alt: "Hell Fire",
+        },
+      ],
     },
     {
       postId: 15,
@@ -186,7 +192,13 @@ const db = {
       category: "Creative",
       image: "images/posts/Arts/vector-girl.jpg",
       delay: "0.4s",
-      album: [],
+      album: [
+        {
+          id: "vector-girl-3",
+          name: "images/posts/Arts/vector-girl.jpg",
+          alt: "vector-girl.1920",
+        },
+      ],
     },
     {
       postId: 19,
@@ -302,10 +314,15 @@ const db = {
           alt: "Greatlakes-32",
         },
         {
-          id: "Greatlakes-thumb",
-          name: "images/posts/8.jpg",
-          alt: "Greatlakes-32",
+          id: "Greatlakes-newiimv5-222",
+          name: "images/posts/Greatlakes-newiimv5.jpg",
+          alt: "Greatlakes-newiimv5-32",
         },
+        // {
+        //   id: "Greatlakes-thumb",
+        //   name: "images/posts/8.jpg",
+        //   alt: "Greatlakes-32",
+        // },
       ],
     },
     {
