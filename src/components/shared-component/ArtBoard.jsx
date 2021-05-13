@@ -24,7 +24,7 @@ const ArtBoard = () => {
   return (
     <>
       {/* <section
-        className="wow fadeIn one-fourth-screen cover-background"
+        className="wow animate__animated fadeIn one-fourth-screen cover-background"
         style={{ backgroundImage: `url(${window.location.origin}/images/pofo-magic-box-bg.jpg)` }}
       >
         <div className="container">
@@ -34,10 +34,10 @@ const ArtBoard = () => {
         </div>
       </section> */}
 
-      {/* <section className="wow fadeIn bg-extra-dark-gray">
+      {/* <section className="wow animate__animated fadeIn bg-extra-dark-gray">
         <div className="container">
           <div className="row"> */}
-      {/* <div className="col-12 col-lg-6 md-margin-50px-bottom sm-margin-30px-bottom wow fadeInLeft">
+      {/* <div className="col-12 col-lg-6 md-margin-50px-bottom sm-margin-30px-bottom wow animate__animated fadeInLeft">
               <h2 className="alt-font font-weight-700 letter-spacing-minus-2 text-white-2 margin-5px-bottom">
                 Meat Bun
               </h2>
@@ -52,7 +52,7 @@ const ArtBoard = () => {
                 Launch Website
               </a>
             </div>
-            <div className="col-12 col-lg-4 offset-lg-2 wow fadeInRight">
+            <div className="col-12 col-lg-4 offset-lg-2 wow animate__animated fadeInRight">
               <ul className="list-style-9 margin-twelve-left">
                 <li className="text-uppercase">
                   <span className="d-block text-extra-small text-white-2">Client</span>Jason Richardson
@@ -74,7 +74,7 @@ const ArtBoard = () => {
       </section> */}
 
       {/* <section
-        className="p-0 parallax one-fifth-screen md-height-500px sm-height-350px background-position-x-50 wow fadeIn"
+        className="p-0 parallax one-fifth-screen md-height-500px sm-height-350px background-position-x-50 wow  animate__animated fadeIn"
         data-stellar-background-ratio="0.4"
         style={{ backgroundImage: `url(${window.location.origin}/${artBoard?.image})` }}
       >
@@ -85,7 +85,7 @@ const ArtBoard = () => {
         </div>
       </section> */}
 
-      <section className="wow fadeIn p-0">
+      <section className="wow animate__animated fadeIn p-0">
         <div className="container-fluid">
           <div className="row">
             <div className="col-12 p-0" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -106,7 +106,7 @@ const ArtBoard = () => {
         </div>
       </section>
 
-      <section className="wow fadeIn">
+      <section className="wow animate__animated fadeIn">
         <div className="container">
           <div className="row">
             <div className="col-12 text-center social-style-4">

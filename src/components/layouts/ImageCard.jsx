@@ -6,14 +6,14 @@ const ImageCard = props => {
   const { scrollToTop, post } = props;
 
   return (
-    <li className="grid-item wow fadeInUp" data-wow-delay={post?.delay}>
+    <li className="grid-item wow animate__animated fadeInUp" data-wow-delay={post?.delay}>
       <Link to={`/art/${post?.postId}`} onClick={scrollToTop}>
         <figure>
           <div className="portfolio-img">
             <Image src={post?.image} alt={post?.name} />
           </div>
           <figcaption>
-            <div className="portfolio-hover-main">
+            <div className="portfolio-hover-main animate__animated animate__flipInY ">
               <div className="portfolio-hover-box align-middle">
                 <div className="portfolio-icon alt-font font-weight-600 icon-medium">+</div>
                 <span className="text-extra-large alt-font text-extra-dark-gray margin-5px-bottom">{post?.name}</span>

@@ -5,7 +5,7 @@ function NotFound() {
   return (
     <section
       id="home"
-      className="p-0 parallax mobile-height wow fadeIn"
+      className="p-0 parallax mobile-height wow animate__animated fadeIn"
       data-stellar-background-ratio="0.5"
       style={{ backgroundImage: 'url("http://placehold.it/1920x1200")' }}
     >

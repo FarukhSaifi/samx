@@ -23,7 +23,7 @@ const Content = () => {
 
   return (
     <div>
-      <section className="wow fadeIn p-0">
+      <section className="wow animate__animated fadeIn p-0">
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -61,7 +61,7 @@ const Content = () => {
                   style={{ display: "flex", flexWrap: "wrap" }}
                 >
                   {/* <!-- start portfolio item --> */}
-                  {/* <li className="grid-item wow advertising design fadeInUp">
+                  {/* <li className="grid-item wow animate__animated advertising design fadeInUp">
                     <a href="single-project-page-01.html">
                       <figure>
                         <div className="portfolio-img">
