@@ -31,11 +31,11 @@ const Header = () => {
           </div>
           {/* <!-- start logo --> */}
           <div className="col text-md-center pl-0 pl-md-3">
-            <a className="logo" href="/">
+            {/* <a className="logo" href="/">
               <h6 style={{ fontFamily: "Barcelony" }} className="default">
                 {profile?.name}
               </h6>
-            </a>
+            </a> */}
           </div>
           {/* <!-- end logo --> */}
           <div className="col text-right pr-0">

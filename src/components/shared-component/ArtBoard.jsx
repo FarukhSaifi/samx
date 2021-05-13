@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import DataContext from "../../Context/DataContext/DataContext";
+import Image from "./Image";
 import Loader from "./Loader";
 
 const ArtBoard = () => {
@@ -22,7 +23,7 @@ const ArtBoard = () => {
 
   return (
     <>
-      <section
+      {/* <section
         className="wow fadeIn one-fourth-screen cover-background"
         style={{ backgroundImage: `url(${window.location.origin}/images/pofo-magic-box-bg.jpg)` }}
       >
@@ -31,12 +32,12 @@ const ArtBoard = () => {
             <div className="col-12"></div>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <section className="wow fadeIn bg-extra-dark-gray">
+      {/* <section className="wow fadeIn bg-extra-dark-gray">
         <div className="container">
-          <div className="row">
-            {/* <div className="col-12 col-lg-6 md-margin-50px-bottom sm-margin-30px-bottom wow fadeInLeft">
+          <div className="row"> */}
+      {/* <div className="col-12 col-lg-6 md-margin-50px-bottom sm-margin-30px-bottom wow fadeInLeft">
               <h2 className="alt-font font-weight-700 letter-spacing-minus-2 text-white-2 margin-5px-bottom">
                 Meat Bun
               </h2>
@@ -68,11 +69,11 @@ const ArtBoard = () => {
                 </li>
               </ul>
             </div> */}
-          </div>
+      {/* </div>
         </div>
-      </section>
+      </section> */}
 
-      <section
+      {/* <section
         className="p-0 parallax one-fifth-screen md-height-500px sm-height-350px background-position-x-50 wow fadeIn"
         data-stellar-background-ratio="0.4"
         style={{ backgroundImage: `url(${window.location.origin}/${artBoard?.image})` }}
@@ -82,15 +83,15 @@ const ArtBoard = () => {
             <div className="col-12"></div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="wow fadeIn p-0">
         <div className="container-fluid">
           <div className="row">
-            <div className="col-12 p-0">
+            <div className="col-12 p-0" style={{ display: "flex", flexDirection: "column", justifyContent: "center" }}>
               {artBoard?.album.length !== 0 ? (
                 artBoard?.album.map(item => (
-                  <img
+                  <Image
                     key={item?.id}
                     src={`${window.location.origin}/${item?.name}`}
                     alt={item?.alt}

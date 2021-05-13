@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Image from "../shared-component/Image";
 
 const ImageCard = props => {
   const { scrollToTop, post } = props;
@@ -9,7 +10,7 @@ const ImageCard = props => {
       <Link to={`/art/${post?.postId}`} onClick={scrollToTop}>
         <figure>
           <div className="portfolio-img">
-            <img src={post?.image} alt={post?.name} />
+            <Image src={post?.image} alt={post?.name} />
           </div>
           <figcaption>
             <div className="portfolio-hover-main">

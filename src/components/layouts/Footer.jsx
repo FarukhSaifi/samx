@@ -47,7 +47,7 @@ const Footer = () => {
           {/* <!-- start copyright --> */}
           <div className="col-lg-4 col-md-5 text-center alt-font text-small font-weight-500 text-lg-right">
             &copy; 2021 SamX is Powered by{" "}
-            <a href="/" target="_blank" title="Samx">
+            <a href="https://github.com/Farukh1x95" target="_blank" title="Samx" rel="noreferrer">
               Finix
             </a>
             .
