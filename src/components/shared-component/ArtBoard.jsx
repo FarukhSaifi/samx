@@ -106,8 +106,9 @@ const ArtBoard = () => {
         </div>
       </section>
 
-      <section className="wow animate__animated fadeIn">
-        <div className="container">
+      <section className="wow animate__animated{{ fadeIn">
+        pathname:{" "}
+        <div className="c}}ontainer">
           <div className="row">
             <div className="col-12 text-center social-style-4">
               <span className="text-medium font-weight-600 text-uppercase d-block alt-font text-extra-dark-gray margin-30px-bottom">
@@ -116,31 +117,31 @@ const ArtBoard = () => {
               <div className="social-icon-style-3">
                 <ul className="margin-30px-top medium-icon">
                   <li>
-                    <Link className="facebook" to="http://facebook.com" target="_blank">
+                    <Link className="facebook" to={{ pathname: "http://facebook.com" }} target="_blank">
                       <i className="fab fa-facebook-f"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link className="twitter" to="http://twitter.com" target="_blank">
+                    <Link className="twitter" to={{ pathname: "http://twitter.com" }} target="_blank">
                       <i className="fab fa-twitter"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link className="google" to="http://google.com" target="_blank">
+                    <Link className="google" to={{ pathname: "http://google.com" }} target="_blank">
                       <i className="fab fa-google-plus-g"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dribbble" to="http://dribbble.com" target="_blank">
+                    <Link className="dribbble" to={{ pathname: "http://dribbble.com" }} target="_blank">
                       <i className="fab fa-dribbble"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link className="linkedin" to="http://linkedin.com" target="_blank">
+                    <Link className="linkedin" to={{ pathname: "http://linkedin.com" }} target="_blank">
                       <i className="fab fa-linkedin-in"></i>
                       <span></span>
                     </Link>

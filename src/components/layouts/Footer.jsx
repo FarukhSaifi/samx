@@ -11,23 +11,22 @@ const Footer = () => {
             <div className="social-icon-style-8 d-inline-block vertical-align-middle">
               <ul className="small-icon mb-0">
                 <li>
-                  <Link className="facebook" to={{ pathname: "https://www.facebook.com/" }} target="_blank">
-                    <i className="fab fa-facebook-f" aria-hidden="true"></i>
+                  <Link to={{ pathname: "https://www.behance.net/mdsameersaifi" }} title="Behance" target="_blank">
+                    <i className="fab fa-behance text-extra-dark-gray" aria-hidden="true"></i>
                   </Link>
                 </li>
                 <li>
-                  <Link className="twitter" to={{ pathname: "https://twitter.com/" }} target="_blank">
-                    <i className="fab fa-twitter"></i>
+                  <Link to={{ pathname: "https://www.instagram.com/samx99designs" }} title="Instagram" target="_blank">
+                    <i className="fab fa-instagram text-extra-dark-gray"></i>
                   </Link>
                 </li>
                 <li>
-                  <Link className="google" to={{ pathname: "https://twitter.com/" }} target="_blank">
-                    <i className="fab fa-google-plus-g"></i>
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dribbble" to={{ pathname: "https://twitter.com/" }} target="_blank">
-                    <i className="fab fa-dribbble mr-0" aria-hidden="true"></i>
+                  <Link
+                    to={{ pathname: "https://www.linkedin.com/in/md-sameer-saifi" }}
+                    title="Linkedin"
+                    target="_blank"
+                  >
+                    <i className="fab fa-linkedin-in text-extra-dark-gray"></i>
                   </Link>
                 </li>
               </ul>
