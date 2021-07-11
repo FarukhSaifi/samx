@@ -16,16 +16,16 @@ const Header = () => {
           {/* <!-- start header navigation --> */}
           <div className="col d-none d-md-block text-left pl-0">
             <div className="social-icon">
-              <Link to="/about" target="_blank">
-                <i className="fab fa-facebook-f text-extra-dark-gray" aria-hidden="true"></i>
+              <Link to={{ pathname: "https://www.behance.net/mdsameersaifi" }} title="Behance" target="_blank">
+                <i className="fab fa-behance text-extra-dark-gray" aria-hidden="true"></i>
               </Link>
 
-              <Link to="/twitter" target="_blank">
-                <i className="fab fa-twitter text-extra-dark-gray"></i>
+              <Link to={{ pathname: "https://www.instagram.com/samx99designs" }} title="Instagram" target="_blank">
+                <i className="fab fa-instagram text-extra-dark-gray"></i>
               </Link>
 
-              <Link to="/dribble" title="Dribbble" target="_blank">
-                <i className="fab fa-dribbble text-extra-dark-gray"></i>
+              <Link to={{ pathname: "https://www.linkedin.com/in/md-sameer-saifi" }} title="Linkedin" target="_blank">
+                <i className="fab fa-linkedin-in text-extra-dark-gray"></i>
               </Link>
             </div>
           </div>
