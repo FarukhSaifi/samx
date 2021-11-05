@@ -353,10 +353,20 @@ const db = {
       image: "images/posts/3.jpg",
       delay: "0.2s",
       album: [
+        // {
+        //   id: "OTP7-2",
+        //   name: "images/posts/3.jpg",
+        //   alt: "OTP7-32",
+        // },
         {
-          id: "OTP7-2",
-          name: "images/posts/3.jpg",
-          alt: "OTP7-32",
+          id: "APY-AD-1",
+          name: "images/posts/APY-AD/APY-AD-1.jpg",
+          alt: "APY-AD-1",
+        },
+        {
+          id: "APY-AD-2",
+          name: "images/posts/APY-AD/APY-AD-2.jpg",
+          alt: "APY-AD-2",
         },
       ],
     },
