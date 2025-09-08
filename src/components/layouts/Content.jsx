@@ -1,25 +1,31 @@
-import React, { useContext } from "react";
-import DataContext from "../../Context/DataContext/DataContext";
-import ImageCard from "./ImageCard";
+import { DataContext } from "@context/DataContext/DataState.jsx";
+import React, { useCallback, useContext, useMemo } from "react";
+import ImageCard from "./ImageCard.jsx";
 
 const Content = () => {
   const context = useContext(DataContext);
   const { posts, filterPost, categorys } = context;
 
   // Set the top cordinate to 0
-  // make scrolling smooth
-  const scrollToTop = () => {
+  // make scrolling smooth - memoized to prevent recreation
+  const scrollToTop = useCallback(() => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     });
-  };
+  }, []);
 
-  const filterByCatagory = e => {
-    console.log("FILTER RUN", e.target.textContent);
-    const data = e.target.textContent;
-    filterPost(data);
-  };
+  // Optimized filter function - memoized to prevent recreation
+  const filterByCatagory = useCallback(
+    e => {
+      const data = e.target.textContent;
+      filterPost(data);
+    },
+    [filterPost]
+  );
+
+  // Memoize the posts to prevent unnecessary re-renders
+  const memoizedPosts = useMemo(() => posts, [posts]);
 
   return (
     <div>
@@ -83,8 +89,7 @@ const Content = () => {
                   </li> */}
                   {/* <!-- end portfolio item --> */}
                   {/* <!-- start  portfolio item --> */}
-                  {console.log(posts[Math.floor(Math.random() * posts.length)])}
-                  {posts.map(post => (
+                  {memoizedPosts.map(post => (
                     <ImageCard key={post.postId} scrollToTop={scrollToTop} post={post} />
                   ))}
 

@@ -1,6 +1,6 @@
-import React from "react";
 import clsx from "clsx";
 import PropTypes from "prop-types";
+import React from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // const useStyles = makeStyles(() => ({
@@ -18,9 +18,15 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
  *
  * @param {Object} props
  */
-const Image = props => {
-  const { src, srcSet, alt, lazy, lazyProps, className, ...rest } = props;
-
+const Image = ({
+  src,
+  srcSet,
+  alt = "...",
+  lazy = true,
+  lazyProps = { width: "auto", height: "auto" },
+  className,
+  ...rest
+}) => {
   // const classes = useStyles();
   if (lazy) {
     return (
@@ -37,15 +43,6 @@ const Image = props => {
   }
 
   return <img className={clsx("image", className)} alt={alt} src={src} srcSet={srcSet} {...rest} />;
-};
-
-Image.defaultProps = {
-  alt: "...",
-  lazy: true,
-  lazyProps: {
-    width: "auto",
-    height: "auto",
-  },
 };
 
 Image.propTypes = {

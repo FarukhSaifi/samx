@@ -1,6 +1,6 @@
+import Image from "@components/shared-component/Image.jsx";
+import { DataContext } from "@context/DataContext/DataState.jsx";
 import React, { useContext } from "react";
-import DataContext from "../../Context/DataContext/DataContext";
-import Image from "../shared-component/Image";
 
 const Banner = () => {
   const context = useContext(DataContext);

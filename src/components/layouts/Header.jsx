@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import { DataContext } from "@context/DataContext/DataState.jsx";
+import React, { useContext, useMemo } from "react";
 import { Link } from "react-router-dom";
-import DataContext from "../../Context/DataContext/DataContext";
 
 const Header = () => {
   const context = useContext(DataContext);
   const { profile } = context;
 
-  console.log("Header => ", profile);
+  // Memoize profile to prevent unnecessary re-renders
+  const memoizedProfile = useMemo(() => profile, [profile]);
 
   return (
     <header>

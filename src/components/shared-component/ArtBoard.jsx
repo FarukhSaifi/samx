@@ -1,9 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import { DataContext } from "@context/DataContext/DataState.jsx";
+import React, { useContext, useEffect, useMemo } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
-import DataContext from "../../Context/DataContext/DataContext";
-import Image from "./Image";
-import Loader from "./Loader";
+import Image from "./Image.jsx";
+import Loader from "./Loader.jsx";
 
 const ArtBoard = () => {
   const { postId } = useParams();
@@ -11,15 +11,17 @@ const ArtBoard = () => {
   const { getArt, loading, artBoard } = context;
 
   useEffect(() => {
-    getArt(postId);
-    //eslint-disable-next-line
-  }, []);
+    if (postId) {
+      getArt(postId);
+    }
+  }, [postId, getArt]);
+
+  // Memoize the album to prevent unnecessary re-renders
+  const memoizedAlbum = useMemo(() => artBoard?.album || [], [artBoard?.album]);
 
   if (loading) {
     return <Loader />;
   }
-
-  console.log(artBoard);
 
   return (
     <>
@@ -96,8 +98,8 @@ const ArtBoard = () => {
                 justifyContent: "center",
               }}
             >
-              {artBoard?.album.length !== 0 ? (
-                artBoard?.album.map((item) => (
+              {memoizedAlbum.length !== 0 ? (
+                memoizedAlbum.map(item => (
                   <Image
                     key={item?.id}
                     src={`${window.location.origin}/${item?.name}`}
@@ -123,51 +125,31 @@ const ArtBoard = () => {
               <div className="social-icon-style-3">
                 <ul className="margin-30px-top medium-icon">
                   <li>
-                    <Link
-                      className="facebook"
-                      to={{ pathname: "http://facebook.com" }}
-                      target="_blank"
-                    >
+                    <Link className="facebook" to={{ pathname: "http://facebook.com" }} target="_blank">
                       <i className="fab fa-facebook-f"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="twitter"
-                      to={{ pathname: "http://twitter.com" }}
-                      target="_blank"
-                    >
+                    <Link className="twitter" to={{ pathname: "http://twitter.com" }} target="_blank">
                       <i className="fab fa-twitter"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="google"
-                      to={{ pathname: "http://google.com" }}
-                      target="_blank"
-                    >
+                    <Link className="google" to={{ pathname: "http://google.com" }} target="_blank">
                       <i className="fab fa-google-plus-g"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="dribbble"
-                      to={{ pathname: "http://dribbble.com" }}
-                      target="_blank"
-                    >
+                    <Link className="dribbble" to={{ pathname: "http://dribbble.com" }} target="_blank">
                       <i className="fab fa-dribbble"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link
-                      className="linkedin"
-                      to={{ pathname: "http://linkedin.com" }}
-                      target="_blank"
-                    >
+                    <Link className="linkedin" to={{ pathname: "http://linkedin.com" }} target="_blank">
                       <i className="fab fa-linkedin-in"></i>
                       <span></span>
                     </Link>

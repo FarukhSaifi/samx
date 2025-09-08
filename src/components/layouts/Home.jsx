@@ -1,6 +1,6 @@
 import React from "react";
-import Banner from "./Banner";
-import Content from "./Content";
+import Banner from "./Banner.jsx";
+import Content from "./Content.jsx";
 
 const Home = () => {
   return (
