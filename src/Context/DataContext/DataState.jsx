@@ -1,3 +1,4 @@
+import siteConfig from "@context/siteConfig.js";
 import { FILTER_POST, GET_ART, SET_LOADING } from "@context/types.js";
 import React, { useCallback, useMemo, useReducer } from "react";
 import DataReducer from "./DataReducer.js";
@@ -48,6 +49,7 @@ const DataState = props => {
       artBoard: state.artBoard,
       loading: state.loading,
       categorys: state.categorys,
+      config: siteConfig,
       getArt,
       filterPost,
     }),

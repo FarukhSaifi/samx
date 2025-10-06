@@ -1,6 +1,6 @@
 import Image from "@components/shared-component/Image.jsx";
-import React, { memo, useCallback } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import { memo, useCallback } from "react";
 
 const ImageCard = memo(props => {
   const { scrollToTop, post } = props;
@@ -12,7 +12,7 @@ const ImageCard = memo(props => {
 
   return (
     <li className="grid-item wow animate__animated fadeInUp" data-wow-delay={post?.delay}>
-      <Link to={`/art/${post?.postId}`} onClick={handleClick}>
+      <Link href={`/art/${post?.postId}`} onClick={handleClick}>
         <figure>
           <div className="portfolio-img">
             <Image src={post?.image} alt={post?.name} />

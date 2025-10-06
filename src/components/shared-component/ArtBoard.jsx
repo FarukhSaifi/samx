@@ -1,20 +1,14 @@
 import { DataContext } from "@context/DataContext/DataState.jsx";
-import React, { useContext, useEffect, useMemo } from "react";
-import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import Link from "next/link";
+import React, { useContext, useMemo } from "react";
 import Image from "./Image.jsx";
 import Loader from "./Loader.jsx";
 
 const ArtBoard = () => {
-  const { postId } = useParams();
   const context = useContext(DataContext);
   const { getArt, loading, artBoard } = context;
 
-  useEffect(() => {
-    if (postId) {
-      getArt(postId);
-    }
-  }, [postId, getArt]);
+  // in Next.js, page handles getArt in pages/art/[postId].jsx
 
   // Memoize the album to prevent unnecessary re-renders
   const memoizedAlbum = useMemo(() => artBoard?.album || [], [artBoard?.album]);
@@ -22,6 +16,8 @@ const ArtBoard = () => {
   if (loading) {
     return <Loader />;
   }
+
+  const baseUrl = typeof window !== "undefined" ? window.location.origin : "";
 
   return (
     <>
@@ -100,12 +96,7 @@ const ArtBoard = () => {
             >
               {memoizedAlbum.length !== 0 ? (
                 memoizedAlbum.map(item => (
-                  <Image
-                    key={item?.id}
-                    src={`${window.location.origin}/${item?.name}`}
-                    alt={item?.alt}
-                    className="width-100"
-                  />
+                  <Image key={item?.id} src={`${baseUrl}/${item?.name}`} alt={item?.alt} className="width-100" />
                 ))
               ) : (
                 <Loader />
@@ -125,31 +116,31 @@ const ArtBoard = () => {
               <div className="social-icon-style-3">
                 <ul className="margin-30px-top medium-icon">
                   <li>
-                    <Link className="facebook" to={{ pathname: "http://facebook.com" }} target="_blank">
+                    <Link className="facebook" href={{ pathname: "http://facebook.com" }} target="_blank">
                       <i className="fab fa-facebook-f"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link className="twitter" to={{ pathname: "http://twitter.com" }} target="_blank">
+                    <Link className="twitter" href={{ pathname: "http://twitter.com" }} target="_blank">
                       <i className="fab fa-twitter"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link className="google" to={{ pathname: "http://google.com" }} target="_blank">
+                    <Link className="google" href={{ pathname: "http://google.com" }} target="_blank">
                       <i className="fab fa-google-plus-g"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link className="dribbble" to={{ pathname: "http://dribbble.com" }} target="_blank">
+                    <Link className="dribbble" href={{ pathname: "http://dribbble.com" }} target="_blank">
                       <i className="fab fa-dribbble"></i>
                       <span></span>
                     </Link>
                   </li>
                   <li>
-                    <Link className="linkedin" to={{ pathname: "http://linkedin.com" }} target="_blank">
+                    <Link className="linkedin" href={{ pathname: "http://linkedin.com" }} target="_blank">
                       <i className="fab fa-linkedin-in"></i>
                       <span></span>
                     </Link>

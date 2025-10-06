@@ -1,10 +1,33 @@
 import { DataContext } from "@context/DataContext/DataState.jsx";
+import Link from "next/link";
 import React, { useContext, useMemo } from "react";
-import { Link } from "react-router-dom";
+
+const SocialBar = ({ links, iconClass, title, className }) => (
+  <Link href={{ pathname: links }} title={title} target="_blank" className={className}>
+    <i className={iconClass} aria-hidden="true"></i>
+  </Link>
+);
+
+const AddressBlock = ({ name, addressLines, phone, email }) => (
+  <span className="text-medium alt-font d-block font-weight-300 margin-15px-bottom line-height-30">
+    {addressLines.map((line, idx) => (
+      <span key={idx}>
+        {line}
+        <br />
+      </span>
+    ))}
+    Call - {phone}
+    <br />
+    Email -{" "}
+    <Link href={{ pathname: `mailto:${email}` }} className="text-white-2" target="_blank">
+      {email}
+    </Link>
+  </span>
+);
 
 const Header = () => {
   const context = useContext(DataContext);
-  const { profile } = context;
+  const { profile, config } = context;
 
   // Memoize profile to prevent unnecessary re-renders
   const memoizedProfile = useMemo(() => profile, [profile]);
@@ -17,15 +40,27 @@ const Header = () => {
           {/* <!-- start header navigation --> */}
           <div className="col d-none d-md-block text-left pl-0">
             <div className="social-icon">
-              <Link to={{ pathname: "https://www.behance.net/mdsameersaifi" }} title="Behance" target="_blank">
+              <Link
+                href={{ pathname: config?.socials?.behance || "https://www.behance.net/mdsameersaifi" }}
+                title="Behance"
+                target="_blank"
+              >
                 <i className="fab fa-behance text-extra-dark-gray" aria-hidden="true"></i>
               </Link>
 
-              <Link to={{ pathname: "https://www.instagram.com/samx99designs" }} title="Instagram" target="_blank">
+              <Link
+                href={{ pathname: config?.socials?.instagram || "https://www.instagram.com/samx99designs" }}
+                title="Instagram"
+                target="_blank"
+              >
                 <i className="fab fa-instagram text-extra-dark-gray"></i>
               </Link>
 
-              <Link to={{ pathname: "https://www.linkedin.com/in/md-sameer-saifi" }} title="Linkedin" target="_blank">
+              <Link
+                href={{ pathname: config?.socials?.linkedin || "https://www.linkedin.com/in/md-sameer-saifi" }}
+                title="Linkedin"
+                target="_blank"
+              >
                 <i className="fab fa-linkedin-in text-extra-dark-gray"></i>
               </Link>
             </div>
@@ -104,22 +139,24 @@ const Header = () => {
                         <div className="col-lg-4 col-md-5 d-flex align-items-center social-style-3">
                           <div className="width-100">
                             <span className="text-extra-large text-deep-pink alt-font d-block margin-15px-bottom">
-                              SamX
+                              {config?.profile?.name || "SamX"}
                             </span>
                             <span className="text-medium alt-font d-block font-weight-300 margin-15px-bottom line-height-30">
-                              301 The Greenhouse,
-                              <br />
-                              Custard Factory, London, E2 8DY.
-                              <br />
-                              Call - +44 (0) 123 456 7890
+                              {(config?.profile?.address || []).map((line, idx) => (
+                                <span key={idx}>
+                                  {line}
+                                  <br />
+                                </span>
+                              ))}
+                              Call - {config?.profile?.phone || "+44 (0) 123 456 7890"}
                               <br />
                               Email -{" "}
                               <Link
-                                to={{ pathname: "mailto:info@domain.com" }}
+                                href={{ pathname: `mailto:${config?.profile?.email || "info@domain.com"}` }}
                                 className="text-white-2"
                                 target="_blank"
                               >
-                                info@domain.com
+                                {config?.profile?.email || "info@domain.com"}
                               </Link>
                             </span>
                             <div className="separator-line-horrizontal-medium-light2 bg-deep-pink margin-25px-tb sm-margin-15px-tb d-inline-block"></div>
@@ -128,29 +165,45 @@ const Header = () => {
                                 <li>
                                   <Link
                                     className="margin-20px-right facebook"
-                                    to="https://www.facebook.com/"
+                                    href={config?.socials?.facebook || "https://www.facebook.com/"}
                                     target="_blank"
                                   >
                                     <i className="fab fa-facebook-f"></i>
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link className="margin-20px-right twitter" to="http://twitter.com" target="_blank">
+                                  <Link
+                                    className="margin-20px-right twitter"
+                                    href={config?.socials?.twitter || "http://twitter.com"}
+                                    target="_blank"
+                                  >
                                     <i className="fab fa-twitter"></i>
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link className="margin-20px-right google" to="http://google.com" target="_blank">
+                                  <Link
+                                    className="margin-20px-right google"
+                                    href={config?.socials?.google || "http://google.com"}
+                                    target="_blank"
+                                  >
                                     <i className="fab fa-google-plus-g"></i>
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link className="margin-20px-right dribbble" to="http://dribbble.com" target="_blank">
+                                  <Link
+                                    className="margin-20px-right dribbble"
+                                    href={config?.socials?.dribbble || "http://dribbble.com"}
+                                    target="_blank"
+                                  >
                                     <i className="fab fa-dribbble"></i>
                                   </Link>
                                 </li>
                                 <li>
-                                  <Link className="inkedin" to="http://linkedin.com" target="_blank">
+                                  <Link
+                                    className="inkedin"
+                                    href={config?.socials?.linkedin || "http://linkedin.com"}
+                                    target="_blank"
+                                  >
                                     <i className="fab fa-linkedin-in"></i>
                                   </Link>
                                 </li>
