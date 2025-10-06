@@ -1,5 +1,6 @@
 import { DataContext } from "@context/DataContext/DataState.jsx";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useContext, useMemo } from "react";
 
 const SocialBar = ({ links, iconClass, title, className }) => (
@@ -27,6 +28,7 @@ const AddressBlock = ({ name, addressLines, phone, email }) => (
 
 const Header = () => {
   const context = useContext(DataContext);
+  const router = useRouter();
   const { profile, config } = context;
 
   // Memoize profile to prevent unnecessary re-renders
@@ -64,6 +66,17 @@ const Header = () => {
                 <i className="fab fa-linkedin-in text-extra-dark-gray"></i>
               </Link>
             </div>
+            {router.pathname !== "/" && (
+              <div style={{ marginTop: 12 }}>
+                <button
+                  type="button"
+                  className="btn btn-transparent-white btn-medium text-extra-small border-radius-4"
+                  onClick={() => (window.history.length > 1 ? router.back() : router.push("/"))}
+                >
+                  ← Back
+                </button>
+              </div>
+            )}
           </div>
           {/* <!-- start logo --> */}
           <div className="col text-md-center pl-0 pl-md-3">
@@ -91,9 +104,9 @@ const Header = () => {
               </div> */}
               <div className="hamburger-menu-wrepper sm-text-center">
                 <div className="hamburger-logo text-left">
-                  <a className="logo" href="index.html">
-                    <img src="images/logo-white.png" data-rjs="images/logo-white@2x.png" alt="Pofo" />
-                  </a>
+                  <Link className="logo" href="/">
+                    <img src="/images/logo-white.png" data-rjs="/images/logo-white@2x.png" alt="Pofo" />
+                  </Link>
                 </div>
                 <div className="btn btn-hamburger border-none">
                   <button className="close-menu close-button-menu" id="close-button"></button>
