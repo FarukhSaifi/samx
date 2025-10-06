@@ -1,14 +1,16 @@
 
 /* Import statements must be at the top */
+@import './bootstrap.min.css';
+/* Bootstrap removed; using Tailwind utilities and existing theme CSS */
+@import './font-awesome.min.css';
+@import './et-line-icons.css';
+@import './themify-icons.css';
+@import './swiper.min.css';
+@import './justified-gallery.min.css';
+@import './magnific-popup.css';
 @import 'animate.css';
-@import 'et-line-icons.css';
-@import 'font-awesome.min.css';
-@import 'themify-icons.css';
-@import 'swiper.min.css';
-@import 'justified-gallery.min.css';
-@import 'magnific-popup.css';
-@import 'style.css';
-@import 'responsive.css';
+@import './style.css';
+@import './responsive.css';
 
 /* Font  for Headline */
 @font-face {

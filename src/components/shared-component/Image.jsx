@@ -1,7 +1,6 @@
 import clsx from "clsx";
+import NextImage from "next/image";
 import PropTypes from "prop-types";
-import React from "react";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 
 // const useStyles = makeStyles(() => ({
 //   root: {
@@ -20,29 +19,26 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
  */
 const Image = ({
   src,
-  srcSet,
   alt = "...",
-  lazy = true,
-  lazyProps = { width: "auto", height: "auto" },
+  width = 800,
+  height = 600,
+  sizes = "100vw",
+  priority = false,
   className,
   ...rest
 }) => {
-  // const classes = useStyles();
-  if (lazy) {
-    return (
-      <LazyLoadImage
-        className={clsx("image", className)}
-        alt={alt}
-        src={src}
-        srcSet={srcSet}
-        effect="opacity"
-        {...lazyProps}
-        {...rest}
-      />
-    );
-  }
-
-  return <img className={clsx("image", className)} alt={alt} src={src} srcSet={srcSet} {...rest} />;
+  return (
+    <NextImage
+      className={clsx("image", className)}
+      alt={alt}
+      src={src}
+      width={width}
+      height={height}
+      sizes={sizes}
+      priority={priority}
+      {...rest}
+    />
+  );
 };
 
 Image.propTypes = {
@@ -55,21 +51,22 @@ Image.propTypes = {
    */
   src: PropTypes.string.isRequired,
   /**
-   * Source set for the responsive images
-   */
-  srcSet: PropTypes.string,
-  /**
    * Image title
    */
   alt: PropTypes.string,
   /**
-   * Lazy loading properties
+   * Width and height for Next.js image optimization
    */
-  lazyProps: PropTypes.object,
+  width: PropTypes.number,
+  height: PropTypes.number,
   /**
-   * Should lazy load the image
+   * Responsive sizes attribute for responsive images
    */
-  lazy: PropTypes.bool,
+  sizes: PropTypes.string,
+  /**
+   * Request high priority for LCP images
+   */
+  priority: PropTypes.bool,
 };
 
 export default Image;

@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 function NotFound() {
   return (
@@ -42,7 +41,7 @@ function NotFound() {
                       </div>
                     </div>
                   </form>
-                  <Link to="/" className="btn btn-transparent-white btn-medium text-extra-small border-radius-4">
+                  <Link href="/" className="btn btn-transparent-white btn-medium text-extra-small border-radius-4">
                     <i className="ti-arrow-left margin-5px-right ml-0" aria-hidden="true"></i> Back To Homepage
                   </Link>
                 </div>

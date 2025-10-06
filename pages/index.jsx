@@ -1,16 +1,13 @@
 import Footer from "@components/layouts/Footer.jsx";
 import Header from "@components/layouts/Header.jsx";
 import Home from "@components/layouts/Home.jsx";
-import DataState from "@context/DataContext/DataState.jsx";
 
-const App = () => {
+export default function Page() {
   return (
-    <DataState>
+    <>
       <Header />
       <Home />
       <Footer />
-    </DataState>
+    </>
   );
-};
-
-export default App;
+}
