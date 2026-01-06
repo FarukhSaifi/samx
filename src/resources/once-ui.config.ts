@@ -11,6 +11,7 @@ import type {
   SocialSharingConfig,
   StyleConfig,
 } from "@/types";
+import type { Schemes } from "@once-ui-system/core";
 import { home } from "./index";
 
 // IMPORTANT: Replace with your own domain address - it's used for SEO in meta tags and schema
@@ -74,7 +75,7 @@ const fonts: FontsConfig = {
 const style: StyleConfig = {
   theme: "system", // dark | light | system
   neutral: "gray", // sand | gray | slate | custom
-  brand: "cyan", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
+  brand: "custom" as Schemes, // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom (custom-yellow: #ebf578)
   accent: "red", // blue | indigo | violet | magenta | pink | red | orange | yellow | moss | green | emerald | aqua | cyan | custom
   solid: "contrast", // color | contrast
   solidStyle: "flat", // flat | plastic
@@ -227,5 +228,5 @@ export {
   sameAs,
   schema,
   socialSharing,
-  style,
+  style
 };

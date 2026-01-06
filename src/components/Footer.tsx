@@ -6,7 +6,7 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column" }}>
+    <Row as="footer" fillWidth padding="8" horizontal="center" s={{ direction: "column", hide: true }}>
       <Row
         className={styles.mobile}
         maxWidth="m"
@@ -32,7 +32,7 @@ export const Footer = () => {
         </Text>
         <Row gap="16">
           {social.map(
-            (item) =>
+            item =>
               item.link && (
                 <IconButton
                   key={item.name}
@@ -42,11 +42,11 @@ export const Footer = () => {
                   size="s"
                   variant="ghost"
                 />
-              ),
+              )
           )}
         </Row>
       </Row>
-      <Row height="80" hide s={{ hide: false }} />
+      <Row height="80" hide s={{ hide: true }} />
     </Row>
   );
 };
