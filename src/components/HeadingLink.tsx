@@ -1,7 +1,7 @@
 "use client";
 
-import { Flex, Heading, IconButton, useToast } from "@once-ui-system/core";
-import type { JSX } from "react";
+import React, { JSX } from "react";
+import { Heading, Flex, IconButton, useToast } from "@once-ui-system/core";
 
 import styles from "@/components/HeadingLink.module.scss";
 
@@ -16,7 +16,6 @@ export const HeadingLink: React.FC<HeadingLinkProps> = ({ id, level, children, s
   const { addToast } = useToast();
 
   const copyURL = (id: string): void => {
-    if (typeof window === "undefined") return;
     const url = `${window.location.origin}${window.location.pathname}#${id}`;
     navigator.clipboard.writeText(url).then(
       () => {

@@ -1,11 +1,11 @@
-export { Footer } from "@/components/Footer";
 export { Header } from "@/components/Header";
-export { HeadingLink } from "@/components/HeadingLink";
+export { Footer } from "@/components/Footer";
 export { Mailchimp } from "@/components/Mailchimp";
-export { CustomMDX } from "@/components/mdx";
 export { ProjectCard } from "@/components/ProjectCard";
-export { Providers } from "@/components/Providers";
+export { HeadingLink } from "@/components/HeadingLink";
 export { RouteGuard } from "@/components/RouteGuard";
+export { Providers } from "@/components/Providers";
 export { ScrollToHash } from "@/components/ScrollToHash";
 export { ThemeSync } from "@/components/ThemeSync";
 export { ThemeToggle } from "@/components/ThemeToggle";
+export { CustomMDX } from "@/components/mdx";

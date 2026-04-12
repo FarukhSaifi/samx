@@ -1,24 +1,24 @@
+import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
-import fs from "node:fs";
-import path from "node:path";
 
 type Team = {
-  name: string,
-  role: string,
-  avatar: string,
-  linkedIn: string,
+  name: string;
+  role: string;
+  avatar: string;
+  linkedIn: string;
 };
 
 type Metadata = {
-  title: string,
-  subtitle?: string,
-  publishedAt: string,
-  summary: string,
-  image?: string,
-  images: string[],
-  tag?: string,
-  team: Team[],
-  link?: string,
+  title: string;
+  subtitle?: string;
+  publishedAt: string;
+  summary: string;
+  image?: string;
+  images: string[];
+  tag?: string;
+  team: Team[];
+  link?: string;
 };
 
 import { notFound } from "next/navigation";
@@ -28,7 +28,7 @@ function getMDXFiles(dir: string) {
     notFound();
   }
 
-  return fs.readdirSync(dir).filter(file => path.extname(file) === ".mdx");
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 
 function readMDXFile(filePath: string) {
@@ -56,7 +56,7 @@ function readMDXFile(filePath: string) {
 
 function getMDXData(dir: string) {
   const mdxFiles = getMDXFiles(dir);
-  return mdxFiles.map(file => {
+  return mdxFiles.map((file) => {
     const { metadata, content } = readMDXFile(path.join(dir, file));
     const slug = path.basename(file, path.extname(file));
 

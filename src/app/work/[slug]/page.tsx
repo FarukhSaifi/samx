@@ -1,15 +1,29 @@
-import { CustomMDX, ScrollToHash } from "@/components";
-import { Projects } from "@/components/work/Projects";
-import { about, baseURL, person, work } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
-import { getPosts } from "@/utils/utils";
-import { AvatarGroup, Column, Heading, Line, Media, Meta, Row, Schema, SmartLink, Text } from "@once-ui-system/core";
-import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getPosts } from "@/utils/utils";
+import {
+  Meta,
+  Schema,
+  AvatarGroup,
+  Button,
+  Column,
+  Flex,
+  Heading,
+  Media,
+  Text,
+  SmartLink,
+  Row,
+  Avatar,
+  Line,
+} from "@once-ui-system/core";
+import { baseURL, about, person, work } from "@/resources";
+import { formatDate } from "@/utils/formatDate";
+import { ScrollToHash, CustomMDX } from "@/components";
+import { Metadata } from "next";
+import { Projects } from "@/components/work/Projects";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "work", "projects"]);
-  return posts.map(post => ({
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -17,13 +31,15 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>,
+  params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join("/") : routeParams.slug || "";
+  const slugPath = Array.isArray(routeParams.slug)
+    ? routeParams.slug.join("/")
+    : routeParams.slug || "";
 
   const posts = getPosts(["src", "app", "work", "projects"]);
-  const post = posts.find(post => post.slug === slugPath);
+  let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
 
@@ -36,18 +52,24 @@ export async function generateMetadata({
   });
 }
 
-export default async function Project({ params }: { params: Promise<{ slug: string | string[] }> }) {
+export default async function Project({
+  params,
+}: {
+  params: Promise<{ slug: string | string[] }>;
+}) {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join("/") : routeParams.slug || "";
+  const slugPath = Array.isArray(routeParams.slug)
+    ? routeParams.slug.join("/")
+    : routeParams.slug || "";
 
-  const post = getPosts(["src", "app", "work", "projects"]).find(post => post.slug === slugPath);
+  let post = getPosts(["src", "app", "work", "projects"]).find((post) => post.slug === slugPath);
 
   if (!post) {
     notFound();
   }
 
   const avatars =
-    post.metadata.team?.map(person => ({
+    post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
 
@@ -61,7 +83,9 @@ export default async function Project({ params }: { params: Promise<{ slug: stri
         description={post.metadata.summary}
         datePublished={post.metadata.publishedAt}
         dateModified={post.metadata.publishedAt}
-        image={post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`}
+        image={
+          post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
+        }
         author={{
           name: person.name,
           url: `${baseURL}${about.path}`,

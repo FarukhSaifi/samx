@@ -1,31 +1,30 @@
-import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
-import type React from "react";
-import type { ReactNode } from "react";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
+import React, { ReactNode } from "react";
 import { slugify as transliterate } from "transliteration";
 
 import {
-  Accordion,
-  AccordionGroup,
-  Button,
-  Card,
-  CodeBlock,
-  Column,
-  Feedback,
-  Grid,
   Heading,
   HeadingLink,
-  Icon,
+  Text,
   InlineCode,
-  Line,
+  CodeBlock,
+  TextProps,
+  MediaProps,
+  Accordion,
+  AccordionGroup,
+  Table,
+  Feedback,
+  Button,
+  Card,
+  Grid,
+  Row,
+  Column,
+  Icon,
+  Media,
+  SmartLink,
   List,
   ListItem,
-  Media,
-  type MediaProps,
-  Row,
-  SmartLink,
-  Table,
-  Text,
-  type TextProps,
+  Line,
 } from "@once-ui-system/core";
 
 type CustomLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -124,7 +123,7 @@ function createInlineCode({ children }: { children: ReactNode }) {
 
 function createCodeBlock(props: any) {
   // For pre tags that contain code blocks
-  if (props.children?.props?.className) {
+  if (props.children && props.children.props && props.children.props.className) {
     const { className, children } = props.children.props;
 
     // Extract language from className (format: language-xxx)
@@ -151,8 +150,8 @@ function createCodeBlock(props: any) {
   return <pre {...props} />;
 }
 
-function createList({ children }: { children: ReactNode }) {
-  return <List>{children}</List>;
+function createList(as: "ul" | "ol") {
+  return ({ children }: { children: ReactNode }) => <List as={as}>{children}</List>;
 }
 
 function createListItem({ children }: { children: ReactNode }) {
@@ -183,8 +182,8 @@ const components = {
   a: CustomLink as any,
   code: createInlineCode as any,
   pre: createCodeBlock as any,
-  ol: createList as any,
-  ul: createList as any,
+  ol: createList("ol") as any,
+  ul: createList("ul") as any,
   li: createListItem as any,
   hr: createHR as any,
   Heading,
@@ -210,5 +209,5 @@ type CustomMDXProps = MDXRemoteProps & {
 };
 
 export function CustomMDX(props: CustomMDXProps) {
-  return <MDXRemote {...props} components={{ ...components, ...(props.components || {}) }} />;
+  return <MDXRemote options={{ blockJS: false }} {...props} components={{ ...components, ...(props.components || {}) }} />;
 }

@@ -1,28 +1,30 @@
+import { notFound } from "next/navigation";
 import { CustomMDX, ScrollToHash } from "@/components";
-import { Posts } from "@/components/blog/Posts";
-import { ShareSection } from "@/components/blog/ShareSection";
-import { about, baseURL, blog, person } from "@/resources";
-import { formatDate } from "@/utils/formatDate";
-import { getPosts } from "@/utils/utils";
 import {
-  Avatar,
+  Meta,
+  Schema,
   Column,
   Heading,
   HeadingNav,
-  Line,
-  Media,
-  Meta,
+  Icon,
   Row,
-  Schema,
-  SmartLink,
   Text,
+  SmartLink,
+  Avatar,
+  Media,
+  Line,
 } from "@once-ui-system/core";
-import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { baseURL, about, blog, person } from "@/resources";
+import { formatDate } from "@/utils/formatDate";
+import { getPosts } from "@/utils/utils";
+import { Metadata } from "next";
+import React from "react";
+import { Posts } from "@/components/blog/Posts";
+import { ShareSection } from "@/components/blog/ShareSection";
 
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
   const posts = getPosts(["src", "app", "blog", "posts"]);
-  return posts.map(post => ({
+  return posts.map((post) => ({
     slug: post.slug,
   }));
 }
@@ -30,13 +32,15 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string | string[] }>,
+  params: Promise<{ slug: string | string[] }>;
 }): Promise<Metadata> {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join("/") : routeParams.slug || "";
+  const slugPath = Array.isArray(routeParams.slug)
+    ? routeParams.slug.join("/")
+    : routeParams.slug || "";
 
   const posts = getPosts(["src", "app", "blog", "posts"]);
-  const post = posts.find(post => post.slug === slugPath);
+  let post = posts.find((post) => post.slug === slugPath);
 
   if (!post) return {};
 
@@ -51,16 +55,18 @@ export async function generateMetadata({
 
 export default async function Blog({ params }: { params: Promise<{ slug: string | string[] }> }) {
   const routeParams = await params;
-  const slugPath = Array.isArray(routeParams.slug) ? routeParams.slug.join("/") : routeParams.slug || "";
+  const slugPath = Array.isArray(routeParams.slug)
+    ? routeParams.slug.join("/")
+    : routeParams.slug || "";
 
-  const post = getPosts(["src", "app", "blog", "posts"]).find(post => post.slug === slugPath);
+  let post = getPosts(["src", "app", "blog", "posts"]).find((post) => post.slug === slugPath);
 
   if (!post) {
     notFound();
   }
 
   const avatars =
-    post.metadata.team?.map(person => ({
+    post.metadata.team?.map((person) => ({
       src: person.avatar,
     })) || [];
 
@@ -77,7 +83,10 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             description={post.metadata.summary}
             datePublished={post.metadata.publishedAt}
             dateModified={post.metadata.publishedAt}
-            image={post.metadata.image || `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`}
+            image={
+              post.metadata.image ||
+              `/api/og/generate?title=${encodeURIComponent(post.metadata.title)}`
+            }
             author={{
               name: person.name,
               url: `${baseURL}${about.path}`,
@@ -93,7 +102,12 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
             </Text>
             <Heading variant="display-strong-m">{post.metadata.title}</Heading>
             {post.metadata.subtitle && (
-              <Text variant="body-default-l" onBackground="neutral-weak" align="center" style={{ fontStyle: "italic" }}>
+              <Text 
+                variant="body-default-l" 
+                onBackground="neutral-weak" 
+                align="center"
+                style={{ fontStyle: 'italic' }}
+              >
                 {post.metadata.subtitle}
               </Text>
             )}
@@ -122,8 +136,11 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <Column as="article" maxWidth="s">
             <CustomMDX source={post.content} />
           </Column>
-
-          <ShareSection title={post.metadata.title} url={`${baseURL}${blog.path}/${post.slug}`} />
+          
+          <ShareSection 
+            title={post.metadata.title} 
+            url={`${baseURL}${blog.path}/${post.slug}`} 
+          />
 
           <Column fillWidth gap="40" horizontal="center" marginTop="40">
             <Line maxWidth="40" />
@@ -135,7 +152,15 @@ export default async function Blog({ params }: { params: Promise<{ slug: string 
           <ScrollToHash />
         </Column>
       </Row>
-      <Column maxWidth={12} paddingLeft="40" fitHeight position="sticky" top="80" gap="16" m={{ hide: true }}>
+      <Column
+        maxWidth={12}
+        paddingLeft="40"
+        fitHeight
+        position="sticky"
+        top="80"
+        gap="16"
+        m={{ hide: true }}
+      >
         <HeadingNav fitHeight />
       </Column>
     </Row>

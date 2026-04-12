@@ -1,17 +1,25 @@
-// import a pre-defined template for config and content options
-export { about, blog, gallery, home, newsletter, person, social, work } from "./content";
+export {
+  person,
+  social,
+  newsletter,
+  home,
+  about,
+  blog,
+  work,
+  gallery,
+} from "./content";
 
 export {
-  baseURL,
-  dataStyle,
   display,
-  effects,
-  fonts,
   mailchimp,
-  protectedRoutes,
   routes,
-  sameAs,
-  schema,
-  socialSharing,
+  protectedRoutes,
+  baseURL,
+  fonts,
   style,
+  schema,
+  sameAs,
+  socialSharing,
+  effects,
+  dataStyle,
 } from "./once-ui.config";

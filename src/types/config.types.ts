@@ -1,4 +1,4 @@
-import type {
+import {
   BorderStyle,
   ChartMode,
   ChartVariant,
@@ -11,7 +11,7 @@ import type {
   Theme,
   TransitionStyle,
 } from "@once-ui-system/core";
-import type { NextFontWithVariable } from "next/dist/compiled/@next/font";
+import { NextFontWithVariable } from "next/dist/compiled/@next/font";
 
 /**
  * Display configuration for UI elements.
@@ -166,7 +166,7 @@ export type SocialSharingConfig = {
 };
 
 /**
- * Top-level config types for samx.config.js
+ * Top-level config types for once-ui.config.js
  */
 export type OnceUIConfig = {
   display: DisplayConfig;
