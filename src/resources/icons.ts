@@ -23,17 +23,19 @@ import {
 } from "react-icons/pi";
 
 import {
-  SiAdobeaftereffects,
-  SiAdobeillustrator,
-  SiAdobeindesign,
-  SiAdobelightroom,
-  SiAdobepremierepro,
-  SiAdobexd,
   SiFigma,
   SiJavascript,
   SiNextdotjs,
   SiSupabase,
 } from "react-icons/si";
+
+import {
+  TbBrandAdobeAfterEffect,
+  TbBrandAdobeIllustrator,
+  TbBrandAdobeIndesign,
+  TbBrandAdobePremier,
+  TbBrandAdobeXd,
+} from "react-icons/tb";
 
 import {
   FaDiscord,
@@ -83,12 +85,11 @@ export const iconLibrary: Record<string, IconType> = {
   reddit: FaReddit,
   telegram: FaTelegram,
   instagram: FaInstagram,
-  illustrator: SiAdobeillustrator,
-  indesign: SiAdobeindesign,
-  "after-effects": SiAdobeaftereffects,
-  "premiere-pro": SiAdobepremierepro,
-  lightroom: SiAdobelightroom,
-  xd: SiAdobexd,
+  illustrator: TbBrandAdobeIllustrator,
+  indesign: TbBrandAdobeIndesign,
+  "after-effects": TbBrandAdobeAfterEffect,
+  "premiere-pro": TbBrandAdobePremier,
+  xd: TbBrandAdobeXd,
 };
 
 export type IconLibrary = typeof iconLibrary;

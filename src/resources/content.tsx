@@ -159,17 +159,8 @@ const about: About = {
     title: "Studies",
     institutions: [
       {
-<<<<<<< HEAD
         name: "University of Delhi",
         description: <>Studied Bachelor of Arts and Design</>,
-=======
-        name: "University of Jakarta",
-        description: <>Studied software engineering.</>,
-      },
-      {
-        name: "Build the Future",
-        description: <>Studied online marketing and personal branding.</>,
->>>>>>> magic/main
       },
     ],
   },
