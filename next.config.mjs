@@ -15,7 +15,7 @@ const nextConfig = {
   transpilePackages: ["next-mdx-remote"],
 
   experimental: {
-    /** Tree-shake heavy barrel exports at build time. */
+    /** Tree-shake heavy barrel exports at build time (@once-ui-system/core breaks prerender when included). */
     optimizePackageImports: ["react-icons"],
   },
 

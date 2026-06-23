@@ -4,7 +4,7 @@ import { Posts } from "@/components/blog/Posts";
 import { ShareSection } from "@/components/blog/ShareSection";
 import { getBlogPostBySlug, getBlogPosts } from "@/lib/blog-posts";
 import { API_ENDPOINTS, ROUTES } from "@/lib/constants";
-import { about, baseURL, blog, person } from "@/resources";
+import { about, baseURL, blog, person, routes } from "@/resources";
 import { formatDate } from "@/utils/formatDate";
 import {
   Avatar,
@@ -22,11 +22,22 @@ import {
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
+export const dynamicParams = true;
+
 export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const posts = await getBlogPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  if (!routes[ROUTES.BLOG]) {
+    return [];
+  }
+
+  try {
+    const posts = await getBlogPosts();
+    return posts.map((post) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.warn("Failed to generate blog static params:", error);
+    return [];
+  }
 }
 
 export async function generateMetadata({

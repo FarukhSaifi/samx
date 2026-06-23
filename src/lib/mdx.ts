@@ -1,6 +1,5 @@
 import fs from "fs";
 import matter from "gray-matter";
-import { notFound } from "next/navigation";
 import path from "path";
 
 import { MDX_CONTENT_PATHS } from "@/lib/constants";
@@ -30,7 +29,7 @@ type Metadata = PostMetadata;
 
 function getMDXFiles(dir: string) {
   if (!fs.existsSync(dir)) {
-    notFound();
+    return [];
   }
 
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
@@ -38,7 +37,7 @@ function getMDXFiles(dir: string) {
 
 function readMDXFile(filePath: string) {
   if (!fs.existsSync(filePath)) {
-    notFound();
+    return null;
   }
 
   const rawContent = fs.readFileSync(filePath, "utf-8");
@@ -61,15 +60,12 @@ function readMDXFile(filePath: string) {
 
 function getMDXData(dir: string) {
   const mdxFiles = getMDXFiles(dir);
-  return mdxFiles.map((file) => {
-    const { metadata, content } = readMDXFile(path.join(dir, file));
-    const slug = path.basename(file, path.extname(file));
+  return mdxFiles.flatMap((file) => {
+    const result = readMDXFile(path.join(dir, file));
+    if (!result) return [];
 
-    return {
-      metadata,
-      slug,
-      content,
-    };
+    const slug = path.basename(file, path.extname(file));
+    return [{ metadata: result.metadata, slug, content: result.content }];
   });
 }
 
