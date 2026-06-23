@@ -1,70 +1,132 @@
-# Getting Started with Create React App
+# Sameer Saifi's Portfolio (SamX)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, clean, and professional portfolio website built with Next.js 16 and Once UI. This portfolio showcases my work as a Senior Graphic Designer, featuring an MDX-based content system for projects, an about/CV page, and a gallery.
 
-## Available Scripts
+View the [demo here](https://samx.vercel.com)
 
-In the project directory, you can run:
+![Sameer Saifi Portfolio](public/images/og/home.jpg)
 
-### `yarn start`
+## 🚀 Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Prerequisites
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Node.js v18.17 or higher
+- npm or yarn package manager
 
-### `yarn test`
+### Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**1. Clone the repository**
 
-### `yarn build`
+```bash
+git clone https://github.com/FarukhSaifi/samx.git
+cd samx
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**2. Install dependencies**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**3. Run development server**
 
-### `yarn eject`
+```bash
+npm run dev
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**4. Configure your portfolio**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```
+src/resources/once-ui.config.ts
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**5. Update your content**
 
-## Learn More
+```
+src/resources/content.tsx
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**6. Add blog posts and projects**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Blog posts: `src/app/blog/posts/`
+- Projects: `src/app/work/projects/`
 
-### Code Splitting
+## ✨ Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 🔍 SEO Optimized
 
-### Analyzing the Bundle Size
+- Automatic Open Graph and X (Twitter) image generation with `next/og`
+- Automatic schema.org structured data and metadata generation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 🎯 Design
 
-### Making a Progressive Web App
+- **Responsive Layout** for all screen sizes
+- **Customizable** through [Once UI data attributes](https://once-ui.com/docs/theming)
+- **Dark Mode** support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 📝 Content Management
 
-### Advanced Configuration
+- **MDX Support** for projects
+- **Flexible Pages** — enable or disable blog, work, gallery, and about/CV
+- **Password Protection** for specific routes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🛠️ Tech Stack
 
-### Deployment
+- [Next.js 16](https://nextjs.org) with App Router
+- [Once UI System](https://once-ui.com)
+- SCSS + CSS Modules
+- MDX content
+- TypeScript
+- [Vercel](https://vercel.com) deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📦 Project Structure
 
-### `yarn build` fails to minify
+```
+src/
+├── app/                 # Next.js App Router pages
+├── components/          # React components
+├── lib/                 # Constants, blog utilities
+├── resources/           # content.tsx, once-ui.config.ts, icons.ts
+└── types/               # TypeScript definitions
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🔧 Configuration
+
+Create a `.env.local` file (see `.env.example`):
+
+```env
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+PAGE_ACCESS_PASSWORD=your-password-here
+```
+
+## 🚀 Deployment
+
+```bash
+npm run build
+npm start
+```
+
+Deploy to [Vercel](https://vercel.com) by connecting this repository.
+
+## 👨‍💻 About Me
+
+**Sameer Saifi** – Senior Graphic Designer
+
+- 📍 Location: New Delhi, India
+- 💼 Currently: Senior Graphic Designer at Nutcracker Communications
+- 🌐 Website: [samx.vercel.com](https://samx.vercel.com)
+- 📧 Email: [sameer1x9@gmail.com](mailto:sameer1x9@gmail.com)
+- 💼 LinkedIn: [md-sameer-saifi](https://www.linkedin.com/in/md-sameer-saifi/)
+- 📷 Instagram: [@samx99designs](https://www.instagram.com/samx99designs/)
+
+## 🙏 Acknowledgments
+
+- Built with [Once UI System](https://once-ui.com)
+- Portfolio template by [Once UI Magic Portfolio](https://github.com/once-ui-system/magic-portfolio)
+- Powered by [Next.js](https://nextjs.org)
+
+---
+
+**Built with ❤️ by Sameer Saifi**

@@ -1,0 +1,166 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: calc(100dvh - 10rem);
+  padding: 2rem 1.5rem 3rem;
+}
+
+.cursorBackground {
+  --cursor-x: 50vw;
+  --cursor-y: 50vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.backgroundBlur,
+.backgroundSharp {
+  position: absolute;
+  inset: -2%;
+  width: 104%;
+  height: 104%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.backgroundBlur {
+  filter: blur(14px);
+  transform: scale(1.1);
+}
+
+.backgroundSharp {
+  mask-image: radial-gradient(
+    circle 200px at var(--cursor-x) var(--cursor-y),
+    #000 0%,
+    #000 35%,
+    transparent 72%
+  );
+  -webkit-mask-image: radial-gradient(
+    circle 200px at var(--cursor-x) var(--cursor-y),
+    #000 0%,
+    #000 35%,
+    transparent 72%
+  );
+}
+
+.cursorGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle 220px at var(--cursor-x) var(--cursor-y),
+    rgba(235, 245, 120, 0.14) 0%,
+    rgba(235, 245, 120, 0.04) 35%,
+    transparent 70%
+  );
+  mix-blend-mode: screen;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100dvh;
+  min-height: 100vh;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 120% 80% at 50% 45%, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 55%, rgba(0, 0, 0, 0.88) 100%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.08) 35%, rgba(0, 0, 0, 0.6) 100%);
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 42rem;
+  text-align: center;
+}
+
+.headline {
+  color: #fff;
+}
+
+.subline {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.aboutButton {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  backdrop-filter: blur(8px);
+  color: #fff !important;
+}
+
+.aboutButton:hover {
+  background: rgba(255, 255, 255, 0.14) !important;
+}
+
+.badge {
+  background: rgba(235, 245, 120, 0.12) !important;
+  border: 1px solid rgba(235, 245, 120, 0.25) !important;
+  backdrop-filter: blur(8px);
+}
+
+.badgeName {
+  color: #ebf578;
+}
+
+.badgeLabel {
+  color: rgba(235, 245, 120, 0.85);
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: calc(100dvh - 12rem);
+    padding: 1.5rem max(1rem, env(safe-area-inset-left)) 2rem;
+    padding-right: max(1rem, env(safe-area-inset-right));
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .backgroundBlur {
+    inset: -8%;
+    width: 116%;
+    height: 116%;
+    transform: scale(1.15);
+  }
+
+  .backgroundSharp {
+    inset: -8%;
+    width: 116%;
+    height: 116%;
+    mask-image: radial-gradient(
+      circle 140px at var(--cursor-x) var(--cursor-y),
+      #000 0%,
+      #000 35%,
+      transparent 72%
+    );
+    -webkit-mask-image: radial-gradient(
+      circle 140px at var(--cursor-x) var(--cursor-y),
+      #000 0%,
+      #000 35%,
+      transparent 72%
+    );
+  }
+
+  .cursorGlow {
+    background: radial-gradient(
+      circle 160px at var(--cursor-x) var(--cursor-y),
+      rgba(235, 245, 120, 0.12) 0%,
+      transparent 70%
+    );
+  }
+}

@@ -1,0 +1,112 @@
+:root {
+  --font-body: var(--font-heading);
+  --font-label: var(--font-heading);
+
+  /* Custom Yellow Brand Color Palette (custom-yellow) - Base: #ebf578 */
+  --scheme-brand-100: #1a2008;
+  --scheme-brand-200: #2d3f10;
+  --scheme-brand-300: #405e18;
+  --scheme-brand-400: #537d20;
+  --scheme-brand-500: #669c28;
+  --scheme-brand-600: #ebf578;
+  --scheme-brand-700: #eef785;
+  --scheme-brand-800: #f1f992;
+  --scheme-brand-900: #f4fb9f;
+  --scheme-brand-1000: #f7fdac;
+  --scheme-brand-1100: #f9feb9;
+  --scheme-brand-1200: #fcffc6;
+  --scheme-brand-600-10: rgba(235, 245, 120, 0.1);
+  --scheme-brand-600-30: rgba(235, 245, 120, 0.3);
+  --scheme-brand-600-50: rgba(235, 245, 120, 0.5);
+
+  --scheme-accent-100: #030b10;
+  --scheme-accent-200: #0d181d;
+  --scheme-accent-300: #364248;
+  --scheme-accent-400: #505d64;
+  --scheme-accent-500: #69777e;
+  --scheme-accent-600: #8a989f;
+  --scheme-accent-700: #a8b7bf;
+  --scheme-accent-800: #c8d7df;
+  --scheme-accent-900: #d5e4ec;
+  --scheme-accent-1000: #e2f1f9;
+  --scheme-accent-1100: #e9f8ff;
+  --scheme-accent-1200: #efffff;
+  --scheme-accent-600-10: rgba(138, 152, 159, 0.1);
+  --scheme-accent-600-30: rgba(138, 152, 159, 0.3);
+  --scheme-accent-600-50: rgba(138, 152, 159, 0.5);
+
+  --scheme-neutral-100: #020b10;
+  --scheme-neutral-200: #0b181d;
+  --scheme-neutral-300: #344248;
+  --scheme-neutral-400: #4f5d64;
+  --scheme-neutral-500: #68777e;
+  --scheme-neutral-600: #89989f;
+  --scheme-neutral-700: #a7b7be;
+  --scheme-neutral-800: #c7d7df;
+  --scheme-neutral-900: #d4e4ec;
+  --scheme-neutral-1000: #e1f2f9;
+  --scheme-neutral-1100: #e7f8ff;
+  --scheme-neutral-1200: #eeffff;
+  --scheme-neutral-600-10: rgba(137, 152, 159, 0.1);
+  --scheme-neutral-600-30: rgba(137, 152, 159, 0.3);
+  --scheme-neutral-600-50: rgba(137, 152, 159, 0.5);
+}
+
+/* Home hero — full-bleed SAM-BANNER behind header and footer */
+html:has(.home-hero-page),
+body:has(.home-hero-page) {
+  overflow-x: hidden;
+  background: #000;
+  width: 100%;
+}
+
+.page-shell:has(.home-hero-page) {
+  background: transparent !important;
+  width: 100%;
+  max-width: none !important;
+  overflow-x: hidden;
+}
+
+.page-shell:has(.home-hero-page) > div:first-child {
+  z-index: 2 !important;
+  pointer-events: none;
+  width: 100vw !important;
+  max-width: none !important;
+}
+
+.app-main:has(.home-hero-page) {
+  padding: 0 !important;
+  flex: 1;
+  display: flex;
+  min-height: 0;
+  width: 100% !important;
+  max-width: none !important;
+  position: relative;
+  z-index: 3 !important;
+}
+
+.app-main:has(.home-hero-page) > div {
+  flex: 1;
+  width: 100% !important;
+  max-width: none !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-shell:has(.home-hero-page) footer {
+  position: relative;
+  z-index: 4;
+  width: 100% !important;
+  max-width: none !important;
+  background: transparent;
+}
+
+.page-shell:has(.home-hero-page) footer a,
+.page-shell:has(.home-hero-page) footer span,
+.page-shell:has(.home-hero-page) footer p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.page-shell:has(.home-hero-page) header {
+  z-index: 10;
+}

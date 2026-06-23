@@ -1,0 +1,30 @@
+@use "./breakpoints.scss" as breakpoints;
+
+@media (max-width: breakpoints.$s) {
+    .position {
+        top: auto;
+        bottom: calc(var(--static-space-16) + env(safe-area-inset-bottom, 0px));
+        left: env(safe-area-inset-left, 0px);
+        right: env(safe-area-inset-right, 0px);
+        width: auto;
+        padding: 12px 16px !important;
+    }
+
+    .navPill {
+        padding: 8px 10px !important;
+    }
+
+    .navItems {
+        gap: 6px !important;
+    }
+
+    .navDivider {
+        max-height: 2rem !important;
+    }
+}
+
+.navPillHome {
+    background: rgba(0, 0, 0, 0.45) !important;
+    backdrop-filter: blur(14px);
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}

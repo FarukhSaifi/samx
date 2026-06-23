@@ -1,0 +1,221 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
+import { Fade, Flex, Line, Row, ToggleButton } from "@once-ui-system/core";
+
+import { ROUTES } from "@/lib/constants";
+import { about, blog, display, gallery, person, routes, work } from "@/resources";
+import classNames from "classnames";
+import styles from "./Header.module.scss";
+import { ThemeToggle } from "./ThemeToggle";
+
+type TimeDisplayProps = {
+  timeZone: string;
+  locale?: string; // Optionally allow locale, defaulting to 'en-GB'
+};
+
+// const TimeDisplay: React.FC<TimeDisplayProps> = ({ timeZone, locale = "en-GB" }) => {
+//   const [currentTime, setCurrentTime] = useState("");
+
+//   useEffect(() => {
+//     const updateTime = () => {
+//       const now = new Date();
+//       const options: Intl.DateTimeFormatOptions = {
+//         timeZone,
+//         hour: "2-digit",
+//         minute: "2-digit",
+//         second: "2-digit",
+//         hour12: false,
+//       };
+//       const timeString = new Intl.DateTimeFormat(locale, options).format(now);
+//       setCurrentTime(timeString);
+//     };
+
+//     updateTime();
+//     const intervalId = setInterval(updateTime, 1000);
+
+//     return () => clearInterval(intervalId);
+//   }, [timeZone, locale]);
+
+//   return <>{currentTime}</>;
+// };
+
+// export default TimeDisplay;
+
+export const Header = () => {
+  const pathname = usePathname() ?? "";
+  const isHome = pathname === ROUTES.HOME;
+
+  return (
+    <>
+      {/* Desktop only — subtle top fade behind sticky header */}
+      <Fade s={{ hide: true }} fillWidth position="fixed" height="80" zIndex={9} />
+      <Row
+        fitHeight
+        className={styles.position}
+        position="sticky"
+        as="header"
+        zIndex={9}
+        fillWidth
+        padding="8"
+        horizontal="center"
+        data-border="rounded"
+        s={{
+          position: "fixed",
+        }}
+      >
+        <Row paddingLeft="12" fillWidth vertical="center" textVariant="body-default-s" s={{ hide: true }}>
+          {display.location && (
+            <Row s={{ hide: true }} style={isHome ? { color: "rgba(255,255,255,0.7)" } : undefined}>
+              {person.location}
+            </Row>
+          )}
+        </Row>
+        <Row fillWidth horizontal="center">
+          <Row
+            className={classNames(styles.navPill, isHome && styles.navPillHome)}
+            background={isHome ? undefined : "page"}
+            border="neutral-alpha-weak"
+            radius="m-4"
+            shadow="l"
+            padding="4"
+            horizontal="center"
+            zIndex={1}
+          >
+            <Row
+              className={styles.navItems}
+              gap="4"
+              vertical="center"
+              textVariant="body-default-s"
+              suppressHydrationWarning
+            >
+              {routes[ROUTES.HOME] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="home"
+                      href={ROUTES.HOME}
+                      selected={pathname === ROUTES.HOME}
+                      aria-label="Home"
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="home"
+                      href={ROUTES.HOME}
+                      selected={pathname === ROUTES.HOME}
+                      aria-label="Home"
+                      size="l"
+                    />
+                  </Row>
+                </>
+              )}
+              <Line className={styles.navDivider} background="neutral-alpha-medium" vert maxHeight="24" />
+              {routes[ROUTES.ABOUT] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      href={ROUTES.ABOUT}
+                      label={about.label}
+                      selected={pathname === ROUTES.ABOUT}
+                      aria-label="About"
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="person"
+                      href={ROUTES.ABOUT}
+                      selected={pathname === ROUTES.ABOUT}
+                      aria-label="About"
+                      size="l"
+                    />
+                  </Row>
+                </>
+              )}
+              {routes[ROUTES.WORK] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="grid"
+                      href={ROUTES.WORK}
+                      label={work.label}
+                      selected={pathname.startsWith(ROUTES.WORK)}
+                      aria-label="Work"
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="grid"
+                      href={ROUTES.WORK}
+                      selected={pathname.startsWith(ROUTES.WORK)}
+                      aria-label="Work"
+                      size="l"
+                    />
+                  </Row>
+                </>
+              )}
+              {routes[ROUTES.BLOG] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="book"
+                      href={ROUTES.BLOG}
+                      label={blog.label}
+                      selected={pathname.startsWith(ROUTES.BLOG)}
+                      aria-label="Blog"
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="book"
+                      href={ROUTES.BLOG}
+                      selected={pathname.startsWith(ROUTES.BLOG)}
+                      aria-label="Blog"
+                      size="l"
+                    />
+                  </Row>
+                </>
+              )}
+              {routes[ROUTES.GALLERY] && (
+                <>
+                  <Row s={{ hide: true }}>
+                    <ToggleButton
+                      prefixIcon="gallery"
+                      href={ROUTES.GALLERY}
+                      label={gallery.label}
+                      selected={pathname.startsWith(ROUTES.GALLERY)}
+                      aria-label="Gallery"
+                    />
+                  </Row>
+                  <Row hide s={{ hide: false }}>
+                    <ToggleButton
+                      prefixIcon="gallery"
+                      href={ROUTES.GALLERY}
+                      selected={pathname.startsWith(ROUTES.GALLERY)}
+                      aria-label="Gallery"
+                      size="l"
+                    />
+                  </Row>
+                </>
+              )}
+              {display.themeSwitcher && (
+                <>
+                  <Line background="neutral-alpha-medium" vert maxHeight="24" />
+                  <ThemeToggle />
+                </>
+              )}
+            </Row>
+          </Row>
+        </Row>
+        <Flex fillWidth horizontal="end" vertical="center" s={{ hide: true }}>
+          <Flex paddingRight="12" horizontal="end" vertical="center" textVariant="body-default-s" gap="20">
+            <ThemeToggle />
+            {/* <Flex hide="s">{display.time && <TimeDisplay timeZone={person.location} />}</Flex> */}
+          </Flex>
+        </Flex>
+      </Row>
+    </>
+  );
+};
