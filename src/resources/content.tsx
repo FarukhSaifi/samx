@@ -11,6 +11,7 @@ const person: Person = {
   email: "sameer1x9@gmail.com",
   location: "Asia/Kolkata",
   languages: ["English", "Hindi"],
+  locale: "en", // BCP 47 language tag for the HTML lang attribute, e.g., 'en', 'ja', 'zh-TW'
 };
 
 const newsletter: Newsletter = {
@@ -67,8 +68,8 @@ const home: Home = {
   },
   subline: (
     <>
-      I&apos;m Sameer, a Senior Graphic Designer, where I craft intuitive <br /> designs. After hours, I build my own
-      projects.
+      I&apos;m {person.firstName}, a {person.role.toLowerCase()}, where I craft intuitive <br /> designs. After hours, I
+      build my own projects.
     </>
   ),
 };
@@ -94,9 +95,9 @@ const about: About = {
     title: "Introduction",
     description: (
       <>
-        Sameer is a Senior Graphic Designer with a passion for transforming complex challenges into simple, elegant
-        design solutions. His work spans digital interfaces, interactive experiences, and the convergence of design and
-        technology.
+        {person.firstName} is a {person.location.split("/")[1]?.replace("_", " ")}-based {person.role.toLowerCase()}{" "}
+        with a passion for transforming complex challenges into simple, elegant design solutions. Their work spans
+        digital interfaces, interactive experiences, and the convergence of design and technology.
       </>
     ),
   },
