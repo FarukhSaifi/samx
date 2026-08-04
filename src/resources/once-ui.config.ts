@@ -13,7 +13,7 @@ import {
   StyleConfig,
 } from "@/types";
 import type { Schemes } from "@once-ui-system/core";
-import { home } from "./index";
+import { home, person, social } from "./content";
 
 const baseURL: string = "https://samx.vercel.com";
 
@@ -182,18 +182,20 @@ const mailchimp: MailchimpConfig = {
   },
 };
 
+// default schema data — pulls from content.tsx so there's one source of truth
 const schema: SchemaConfig = {
   logo: "/images/favicon.ico",
   type: "Person",
-  name: "Sameer Saifi",
+  name: person.name,
   description: home.description,
-  email: "sameer1x9@gmail.com",
+  email: person.email,
 };
 
+// social links — derived from the social array in content.tsx to avoid duplication
 const sameAs: SameAsConfig = {
-  threads: "https://www.threads.com/@samx99designs",
-  linkedin: "https://www.linkedin.com/in/md-sameer-saifi/",
-  discord: "https://discord.com/invite/5EyAQ4eNdS",
+  threads: social.find((s) => s.name === "Threads")?.link ?? "",
+  linkedin: social.find((s) => s.name === "LinkedIn")?.link ?? "",
+  discord: social.find((s) => s.name === "Discord")?.link ?? "",
 };
 
 const socialSharing: SocialSharingConfig = {
